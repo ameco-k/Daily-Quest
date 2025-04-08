@@ -79,4 +79,36 @@
       '深呼吸する',
       'ストレッチをする',
       '1杯の水を飲む',
-      '5分間だけ部屋を片付
+      '5分間だけ部屋を片付ける',
+      'お気に入りの曲を聴く'
+    ];
+
+    function getTasks() {
+      const saved = localStorage.getItem('questTasks');
+      return saved ? JSON.parse(saved) : defaultTasks;
+    }
+
+    function saveTasks(tasks) {
+      localStorage.setItem('questTasks', JSON.stringify(tasks));
+    }
+
+    function addTask() {
+      const input = document.getElementById('newTask');
+      const task = input.value.trim();
+      if (task === '') return;
+
+      const tasks = getTasks();
+      tasks.push(task);
+      saveTasks(tasks);
+      input.value = '';
+      alert('クエストを追加しました！');
+    }
+
+    function showRandomTask() {
+      const tasks = getTasks();
+      const task = tasks[Math.floor(Math.random() * tasks.length)];
+      document.getElementById('taskDisplay').textContent = task;
+    }
+  </script>
+</body>
+</html>
