@@ -1,33 +1,56 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>今日のクエスト</title>
+  <!-- ドットフォント風 -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: sans-serif;
-      padding: 2em;
-      background: #f9f9f9;
-      text-align: center;
-    }
-    h1 {
-      font-size: 1.8em;
+      font-family: 'Press Start 2P', system-ui, sans-serif;
+      background: #fdf6e3;
       color: #333;
+      padding: 2em;
+      text-align: center;
+      background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
     }
-    button {
+
+    h1 {
       font-size: 1.2em;
-      padding: 0.6em 1em;
-      margin-top: 1em;
+      margin-bottom: 2em;
     }
+
+    button {
+      background-color: #ffb3c1;
+      border: none;
+      padding: 1em 1.5em;
+      font-size: 0.8em;
+      font-family: 'Press Start 2P', system-ui, sans-serif;
+      border-radius: 6px;
+      box-shadow: 2px 2px 0 #e295a5;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ffa6b7;
+    }
+
     #taskDisplay {
       margin-top: 2em;
-      font-size: 1.5em;
+      font-size: 1em;
       font-weight: bold;
-      color: #0077cc;
+      color: #444;
+      background: #fff;
+      display: inline-block;
+      padding: 1em;
+      border-radius: 8px;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid #eee;
     }
   </style>
 </head>
+
 <body>
   <h1>今日のクエスト</h1>
   <button onclick="showRandomTask()">クエストを引く</button>
