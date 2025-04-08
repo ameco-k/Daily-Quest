@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>今日のクエスト</title>
+  <title>おれのデイリー・クエスト</title>
   <!-- フォント読み込み -->
   <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=DotGothic16&display=swap" rel="stylesheet">
   <style>
@@ -65,21 +65,29 @@
   </style>
 </head>
 <body>
-  <h1>今日のクエスト</h1>
+  <h1>俺のデイリー・クエスト</h1>
 
   <input type="text" id="newTask" placeholder="クエストを入力…" />
   <br />
-  <button onclick="addTask()">追加する</button>
-  <button onclick="showRandomTask()">クエストを引く</button>
+  <button onclick="addTask()">新クエストを入力</button>
+  <button onclick="showRandomTask()">クエストに挑む</button>
 
   <p id="taskDisplay">汝にクエストを授ける──</p>
 
   <script>
     const defaultTasks = [
-      '深呼吸する',
+      'ポストを確認する',
       'ストレッチをする',
-      '1杯の水を飲む',
-      '5分間だけ部屋を片付ける',
+      '手帳の整理をする',
+      'トイレ掃除',
+      'バスルームの清掃',
+      '洗面台をピカピカにする',
+      'ベッドメイキング',
+      'シンクを磨く',
+      '10分間だけ部屋を片付ける',
+      'デスクの整頓',
+      '確定申告に備える（30分）'
+      '晴れなら散歩　雨なら筋トレ'
       'お気に入りの曲を聴く'
     ];
 
