@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>今日のクエスト</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2em;
+      background: #f9f9f9;
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.8em;
+      color: #333;
+    }
+    button {
+      font-size: 1.2em;
+      padding: 0.6em 1em;
+      margin-top: 1em;
+    }
+    #taskDisplay {
+      margin-top: 2em;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #0077cc;
+    }
+  </style>
+</head>
+<body>
+  <h1>今日のクエスト</h1>
+  <button onclick="showRandomTask()">クエストを引く</button>
+  <p id="taskDisplay"></p>
+
+  <script>
+    const tasks = [
+      '深呼吸する',
+      'ストレッチをする',
+      '1杯の水を飲む',
+      '5分間だけ部屋を片付ける',
+      'お気に入りの曲を聴く',
+      '外の空気を吸う'
+    ];
+
+    function showRandomTask() {
+      const task = tasks[Math.floor(Math.random() * tasks.length)];
+      document.getElementById('taskDisplay').textContent = task;
+    }
+  </script>
+</body>
+</html>
