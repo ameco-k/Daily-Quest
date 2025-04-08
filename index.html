@@ -14,12 +14,12 @@
 
   <!-- スマホのホーム画面アイコン -->
   <link rel="apple-touch-icon" href="thumbnail.png">
-
   <!-- ブラウザのタブアイコン -->
   <link rel="icon" href="thumbnail.png" type="image/png">
 
   <!-- フォント読み込み -->
   <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=DotGothic16&display=swap" rel="stylesheet">
+
   <style>
     body {
       font-family: 'Kiwi Maru', serif;
@@ -125,37 +125,27 @@
     }
 
     #taskList li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      padding: 0.5em 1em;
       margin: 0.5em 0;
       font-family: 'Kiwi Maru', serif;
       font-size: 0.9em;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
     }
 
-    #taskList li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
-  border: 1px solid #eee;
-  border-radius: 6px;
-  padding: 0.5em 1em;
-  margin: 0.5em 0;
-  font-family: 'Kiwi Maru', serif;
-  font-size: 0.9em;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-#taskList button {
-  background-color: #eee;
-  border: none;
-  padding: 0.3em 0.6em;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9em;
-}
-
-#taskList button:hover {
-  background-color: #ddd;
-}
+    #taskList button {
+      background-color: #eee;
+      border: none;
+      padding: 0.3em 0.6em;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
 
     #taskList button:hover {
       background-color: #ddd;
@@ -186,7 +176,6 @@
       'ポストを確認する',
       'ストレッチをする',
       '手帳の整理をする',
-      '洗濯機のメンテ',
       'トイレ掃除',
       'バスルームの清掃',
       '洗面台をピカピカにする',
@@ -251,7 +240,7 @@
         del.onclick = () => {
           tasks.splice(index, 1);
           saveTasks(tasks);
-          showTaskList(); // 再描画
+          showTaskList();
           alert('クエストを削除しました！');
         };
 
