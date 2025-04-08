@@ -119,6 +119,27 @@
     button#addButton:hover {
       background-color: #ccc;
     }
+
+    #taskListArea {
+      margin-top: 2em;
+    }
+
+    #taskList li {
+      margin: 0.5em 0;
+      font-family: 'Kiwi Maru', serif;
+      font-size: 0.9em;
+    }
+
+    #taskList button {
+      background-color: #eee;
+      border: none;
+      margin-left: 1em;
+      cursor: pointer;
+    }
+
+    #taskList button:hover {
+      background-color: #ddd;
+    }
   </style>
 </head>
 <body>
@@ -132,6 +153,12 @@
   <div class="inputArea">
     <input type="text" id="newTask" placeholder="クエストを入力…" />
     <button id="addButton" onclick="addTask()">新クエストを入力</button>
+    <button id="manageButton" onclick="toggleTaskList()">クエスト一覧を見る・削除する</button>
+
+    <div id="taskListArea" style="display:none;">
+      <h2 style="font-size: 1em; font-family: 'Kiwi Maru', serif;">現在のクエスト一覧</h2>
+      <ul id="taskList" style="list-style: none; padding: 0;"></ul>
+    </div>
   </div>
 
   <script>
@@ -139,6 +166,7 @@
       'ポストを確認する',
       'ストレッチをする',
       '手帳の整理をする',
+      '洗濯機のメンテ',
       'トイレ掃除',
       'バスルームの清掃',
       '洗面台をピカピカにする',
@@ -147,7 +175,7 @@
       '10分間だけ部屋を片付ける',
       'デスクの整頓',
       '確定申告に備える（30分）',
-      '晴れてたら散歩　雨降りなら筋トレ',
+      '晴れなら散歩　雨なら筋トレ',
       'お気に入りの曲を聴く'
     ];
 
@@ -176,6 +204,41 @@
       const tasks = getTasks();
       const task = tasks[Math.floor(Math.random() * tasks.length)];
       document.getElementById('taskDisplay').textContent = task;
+    }
+
+    function toggleTaskList() {
+      const area = document.getElementById('taskListArea');
+      if (area.style.display === 'none') {
+        showTaskList();
+        area.style.display = 'block';
+      } else {
+        area.style.display = 'none';
+      }
+    }
+
+    function showTaskList() {
+      const taskList = document.getElementById('taskList');
+      taskList.innerHTML = '';
+      const tasks = getTasks();
+
+      tasks.forEach((task, index) => {
+        const li = document.createElement('li');
+        const text = document.createElement('span');
+        text.textContent = task;
+
+        const del = document.createElement('button');
+        del.textContent = '❌';
+        del.onclick = () => {
+          tasks.splice(index, 1);
+          saveTasks(tasks);
+          showTaskList(); // 再描画
+          alert('クエストを削除しました！');
+        };
+
+        li.appendChild(text);
+        li.appendChild(del);
+        taskList.appendChild(li);
+      });
     }
   </script>
 </body>
