@@ -6,7 +6,7 @@
   <title>おれのデイリー・クエスト</title>
 
   <!-- SNS共有用のOGP画像 -->
-  <meta property="og:title" content="きみのデイリー・クエスト">
+  <meta property="og:title" content="俺のデイリー・クエスト">
   <meta property="og:description" content="1日ひとつ、クエストをこなせ！">
   <meta property="og:image" content="https://ameco-k.github.io/Daily-Quest/thumbnail.png">
   <meta property="og:url" content="https://ameco-k.github.io/Daily-Quest/">
@@ -28,72 +28,32 @@
       padding: 2em;
       text-align: center;
       background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     h1 {
       font-size: 1.8em;
       font-family: 'Kiwi Maru', serif;
-      margin-bottom: 2em;
-    }
-
-    input[type="text"] {
-      font-family: 'Kiwi Maru', serif;
-      padding: 0.5em;
-      font-size: 1em;
-      width: 80%;
-      max-width: 300px;
       margin-bottom: 1em;
     }
 
-    /* ボタンの共通設定をIDごとに分離 */
-    button {
-      font-family: 'Kiwi Maru', serif;
-      border-radius: 6px;
-      box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-      margin: 0.5em auto;
-      display: block;
-      border: none;
-    }
-
-    button#addButton {
-      background-color: #ddd;
-      padding: 0.6em 1em;
-      font-size: 0.8em;
-      color: #555;
-    }
-
-    button#drawButton {
-      background-color: #ffb3c1;
-      padding: 1.2em 2em;
-      font-size: 1em;
-      color: #222;
-      box-shadow: 2px 2px 0 #e295a5;
-    }
-
-    button#drawButton:hover {
-      background-color: #ffa6b7;
-    }
-
-    button#addButton:hover {
-      background-color: #ccc;
-    }
-
     #taskDisplay {
-      margin-top: 2em;
-      font-size: 1.2em;
+      font-size: 1.5em;
       font-weight: bold;
       color: #444;
       background: #fff;
       display: inline-block;
-      padding: 1.5em;
-      border-radius: 12px;
+      padding: 2em;
+      border-radius: 16px;
       box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
       border: 1px solid #eee;
       max-width: 90%;
-      line-height: 1.6;
+      line-height: 1.8;
       font-family: 'DotGothic16', sans-serif;
       position: relative;
+      margin: 1em auto 1.5em auto;
     }
 
     #taskDisplay::after {
@@ -108,16 +68,71 @@
       border-bottom: 0;
       margin-left: -10px;
     }
+
+    button {
+      font-family: 'Kiwi Maru', serif;
+      border-radius: 6px;
+      box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      margin: 0.5em auto;
+      display: block;
+      border: none;
+    }
+
+    button#drawButton {
+      background-color: #ffb3c1;
+      padding: 1.2em 2em;
+      font-size: 1em;
+      color: #222;
+      box-shadow: 2px 2px 0 #e295a5;
+    }
+
+    button#drawButton:hover {
+      background-color: #ffa6b7;
+    }
+
+    .spacer {
+      height: 4em;
+    }
+
+    .inputArea {
+      margin-top: auto;
+      padding-top: 2em;
+    }
+
+    input[type="text"] {
+      font-family: 'Kiwi Maru', serif;
+      padding: 0.5em;
+      font-size: 1em;
+      width: 80%;
+      max-width: 300px;
+      margin-bottom: 1em;
+    }
+
+    button#addButton {
+      background-color: #ddd;
+      padding: 0.6em 1em;
+      font-size: 0.8em;
+      color: #555;
+    }
+
+    button#addButton:hover {
+      background-color: #ccc;
+    }
   </style>
 </head>
 <body>
   <h1>俺のデイリー・クエスト</h1>
 
-  <input type="text" id="newTask" placeholder="クエストを入力…" />
-  <button id="drawButton" onclick="showRandomTask()">クエストに挑む</button>
-  <button id="addButton" onclick="addTask()">新クエストを入力</button>
-
   <p id="taskDisplay">汝にクエストを授ける──</p>
+  <button id="drawButton" onclick="showRandomTask()">クエストに挑む</button>
+
+  <div class="spacer"></div>
+
+  <div class="inputArea">
+    <input type="text" id="newTask" placeholder="クエストを入力…" />
+    <button id="addButton" onclick="addTask()">新クエストを入力</button>
+  </div>
 
   <script>
     const defaultTasks = [
