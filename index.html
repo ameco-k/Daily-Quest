@@ -43,22 +43,39 @@
       margin-bottom: 1em;
     }
 
-    button {
-      background-color: #ffb3c1;
-      border: none;
-      padding: 1em 1.5em;
-      font-size: 0.9em;
-      font-family: 'Kiwi Maru', serif;
-      border-radius: 6px;
-      box-shadow: 2px 2px 0 #e295a5;
-      cursor: pointer;
-      margin: 0.5em auto;
-      display: block;
-    }
+   button {
+  font-family: 'Kiwi Maru', serif;
+  border-radius: 6px;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  margin: 0.5em auto;
+  display: block;
+  border: none;
+}
 
-    button:hover {
-      background-color: #ffa6b7;
-    }
+button#addButton {
+  background-color: #ddd;
+  padding: 0.6em 1em;
+  font-size: 0.8em;
+  color: #555;
+}
+
+button#drawButton {
+  background-color: #ffb3c1;
+  padding: 1.2em 2em;
+  font-size: 1em;
+  color: #222;
+  box-shadow: 2px 2px 0 #e295a5;
+}
+
+button#drawButton:hover {
+  background-color: #ffa6b7;
+}
+
+button#addButton:hover {
+  background-color: #ccc;
+}
+
 
     #taskDisplay {
       margin-top: 2em;
